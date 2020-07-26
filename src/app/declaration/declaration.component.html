@@ -1,0 +1,121 @@
+<div class="row custom-row">
+    <div class= "col-sm-5 custom-container jumbotron">
+        
+      <form novalidate (ngSubmit)="onFormSubmit(declarationForm)"  #declarationForm="ngForm">
+        <fieldset>
+          <legend>Remplir le formulaire de la déclaration de perte </legend>
+                <div class="form-control">
+                    <label for="description">Descriptif de l'objet </label>
+                    <input type="text"
+                      ngModel
+                      id="description"
+                      placeholder="Décrire l'objet"
+                      #description="ngModel"
+                      maxlength="42"
+                      required>
+  
+                          <!-- descriptif error block -->
+                      <div *ngIf="(description.invalid||(description.touched))" class="col-sm-3 text-danger">
+                      
+                          <div *ngIf = "description.errors?.required">
+                            Ce champs est obligatoire
+                          </div>
+                          <div *ngIf = "description.invalid">
+                            La description ne doit pas dépasser 42 caractères
+                          </div> 
+                       </div>
+                 </div>
+              <br>
+              <div class="form-control">
+                <label for="marque">Marque </label>
+                <input type="text"
+                  id="marque"
+                  ngModel
+                  placeholder="Marque"
+                  required>
+              </div>
+              <br>
+  
+              <div class="form-control">
+                <label for="montant">Montant </label>
+                <input type="number"
+                  id="montant"
+                  ngModel
+                  placeholder="montant"
+                  #montant="ngModel"
+                  pattern="[0-9]$"
+                  required>
+              
+  
+               <div *ngIf="montant.invalid && (montant.dirty || montant.touched)" class="alert alert-danger">
+                  <div *ngIf = "montant.errors?.required">
+                    Ce champs est obligatoire
+                  </div>
+                  <div *ngIf = "montant.errors?.pattern && montant.touched">
+                    Le montant semble être incorrect
+                  </div>
+                </div>
+              </div>
+              <br>
+      
+              <div class="form-control">
+                <label for="catégorie" >Catégorie </label>
+                
+                <input type="texte"
+                  id="catégorie"
+                  ngModel
+                  placeholder="Catégorie"
+                  required>
+              </div>
+               <br>
+              <div class="form-control">
+                <label for="provenance">Provenance </label>
+                  <select id="provenance" ngModel required>
+                    <option>Achat</option>
+                    <option>Cadeau</option>
+                    <option>Heritage</option>
+                    <option>Location</option>
+                  </select>
+              </div>
+               <br>
+  
+               <div class="form-control">
+                <label for="etat">Etat </label>
+                  <select id="etat" ngModel required>
+                    <option>Neuf</option>
+                    <option>Bon état</option>
+                    <option>Trés bon état</option>
+                    <option>Mauvais état</option>
+                  </select>
+              </div><br>
+              <br>
+  
+              <label for="date">Date </label>
+                <input type="date" id="date" name="date" ngModel required>
+              
+              <!--- Terms and conditions Block --->
+               <div class="form-group checkbox">
+                  <label>
+                    <input type="checkbox"> Confirm that you've read the Terms and
+                    Conditions
+                  </label>
+               </div>
+              <br>
+              <br>
+  
+            
+  
+             <!--- Buttons Block --->
+              <div class="form-control">
+                    <button type="submit"  class="btn btn-success" [disabled]="!declarationForm.form.valid" (click)="changementDePage();">
+                      Submit
+                    </button>
+                  <button type="reset" class="btn btn-default">Reset</button> 
+                              
+               </div>
+          </fieldset>
+      </form>
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,20 @@
+button[type=submit]{
+    background-color:forestgreen;
+    color:white;
+    border:none;
+    padding: 6px 20px;
+    font-size:110%;
+    border-radius:10px;
+    font-family: Rockwell, georgia, serif;
+}
+
+button[type=reset]{
+    background-color:red;
+    color:white;
+    border:none;
+    padding: 6px 20px;
+    font-size:110%;
+    border-radius:10px;
+    font-family: Rockwell, georgia, serif;
+}
+
