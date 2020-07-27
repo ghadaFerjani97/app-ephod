@@ -1,12 +1,18 @@
-<h1> Declaration de perte  </h1>
+<div *ngIf="visibilityArray[PagesInedxName.LOSS_DECLARATION]">
+  <h1> Declaration de perte  </h1>
+  <app-declaration></app-declaration>
+  <button (click)="next(PagesInedxName.VERBAL)">next</button>
+</div>
 
-<app-declaration></app-declaration>
-<h1>Saisie du procés verbal </h1>
+<div *ngIf="visibilityArray[PagesInedxName.VERBAL]">
+  <h1>Saisie du procés verbal </h1>
+  <app-pv-upload></app-pv-upload>
+  <app-file-upload></app-file-upload>
+  <button (click)="next(PagesInedxName.BILL)">next</button>
+</div>
 
-<app-pv-upload></app-pv-upload>
-<app-file-upload></app-file-upload>
-
-<h1>Saisie de la facture </h1>
-<app-saisie-facture></app-saisie-facture>
-
+<div *ngIf="visibilityArray[PagesInedxName.BILL]">
+  <h1>Saisie de la facture </h1>
+  <app-saisie-facture></app-saisie-facture>
+</div>
 
